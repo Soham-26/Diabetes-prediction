@@ -2,9 +2,20 @@ import streamlit as st
 import pickle
 import numpy as np
 
-# Load model
-model = pickle.load(open("diabetes_model.pkl", "rb"))
-scaler = pickle.load(open("scaler.pkl", "rb"))
+
+
+import os
+import pickle
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+model_path = os.path.join(BASE_DIR, "diabetes_model.pkl")
+scaler_path = os.path.join(BASE_DIR, "scaler.pkl")
+
+model = pickle.load(open(model_path, "rb"))
+scaler = pickle.load(open(scaler_path, "rb"))
+
+
 
 st.set_page_config(page_title="Diabetes Prediction", page_icon="🩺")
 
